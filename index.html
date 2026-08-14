@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+    <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#b85c6b"
+  >
+
+  <meta
+    name="description"
+    content="Flora Village — авторские букеты из свежих цветов с доставкой. Выберите готовый букет или создайте собственную композицию."
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <meta
+    name="author"
+    content="Flora Village"
+  >
+
+  <meta
+    name="keywords"
+    content="цветы, букеты, доставка цветов, авторские букеты, Flora Village"
+  >
+
+  <meta
+    name="format-detection"
+    content="telephone=no"
+  >
+
+  <!-- Open Graph -->
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:locale"
+    content="ru_RU"
+  >
+
+  <meta
+    property="og:title"
+    content="Flora Village — цветы, которые говорят за вас"
+  >
+
+  <meta
+    property="og:description"
+    content="Авторские букеты из свежих цветов с доставкой."
+  >
+
+  <meta
+    property="og:image"
+    content="logo.png"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="Flora Village"
+  >
+
+  <meta
+    property="og:site_name"
+    content="Flora Village"
+  >
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    href="tab-icon.ico"
+    type="image/x-icon"
+  >
+
+  <link
+    rel="shortcut icon"
+    href="tab-icon.ico"
+    type="image/x-icon"
+  >
+
+  <!-- Performance -->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous"
+  >
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Main stylesheet -->
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <title>
+    Flora Village — доставка свежих цветов и авторских букетов
+  </title>
+</head>
+
+
+<body id="top">
+
+  <!-- Skip navigation -->
+  <a
+    class="skip-link"
+    href="#main-content"
+  >
+    Перейти к содержимому
+  </a>
+
+
+  <!-- =====================================================
+       ANNOUNCEMENT
+  ====================================================== -->
+
+  <div
+    class="announcement"
+    role="banner"
+  >
+    <div class="container">
+
+      <i
+        class="fa-solid fa-truck-fast"
+        aria-hidden="true"
+      ></i>
+
+      <span>
+        Свежие цветы каждый день · доставка от 60 минут
+      </span>
+
+    </div>
+  </div>
+
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="header">
+
+    <div class="container header__inner">
+
+      <!-- Logo -->
+      <a
+        class="logo"
+        href="#top"
+        aria-label="Flora Village — на главную"
+      >
+
+        <img
+          src="logo.png"
+          alt="Flora Village"
+          width="120"
+          height="120"
+          decoding="async"
+        >
+
+        <span>
+          FLORA
+          <b>VILLAGE</b>
+        </span>
+
+      </a>
+
+
+      <!-- Main navigation -->
+      <nav
+        class="nav"
+        id="nav"
+        aria-label="Основная навигация"
+      >
+
+        <a
+          class="nav__link active"
+          href="#top"
+          aria-current="page"
+        >
+          Главная
+        </a>
+
+        <a
+          class="nav__link"
+          href="#catalog"
+        >
+          Каталог
+        </a>
+
+        <a
+          class="nav__link"
+          href="#about"
+        >
+          О нас
+        </a>
+
+        <a
+          class="nav__link"
+          href="#builder"
+        >
+          Конструктор
+        </a>
+
+        <a
+          class="nav__link"
+          href="#reviews"
+        >
+          Отзывы
+        </a>
+
+        <a
+          class="nav__link"
+          href="#contacts"
+        >
+          Контакты
+        </a>
+
+      </nav>
+
+
+      <!-- Header actions -->
+      <div class="header__actions">
+
+        <!-- Theme -->
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          type="button"
+          aria-label="Переключить тёмную тему"
+          aria-pressed="false"
+        >
+          <i
+            class="fa-regular fa-moon"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+
+        <!-- Language -->
+        <button
+          class="lang-btn"
+          id="langBtn"
+          type="button"
+          aria-label="Изменить язык"
+          aria-haspopup="menu"
+        >
+          EN
+        </button>
+
+
+        <!-- Search -->
+        <button
+          class="icon-btn"
+          id="searchBtn"
+          type="button"
+          aria-label="Открыть поиск"
+          aria-expanded="false"
+          aria-controls="searchbar"
+        >
+          <i
+            class="fa-solid fa-magnifying-glass"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+
+        <!-- Favorites -->
+        <button
+          class="icon-btn has-badge"
+          id="favBtn"
+          type="button"
+          aria-label="Открыть избранное"
+          aria-controls="favPanel"
+        >
+          <i
+            class="fa-regular fa-heart"
+            aria-hidden="true"
+          ></i>
+
+          <span
+            id="favCount"
+            aria-hidden="true"
+          >
+            0
+          </span>
+        </button>
+
+
+        <!-- Account -->
+        <button
+          class="account-chip"
+          id="accountBtn"
+          type="button"
+          aria-label="Открыть личный кабинет"
+          aria-controls="accountModal"
+          aria-haspopup="dialog"
+        >
+          <i
+            class="fa-regular fa-user"
+            aria-hidden="true"
+          ></i>
+
+          <span>
+            Войти
+          </span>
+        </button>
+
+
+        <!-- Cart -->
+        <button
+          class="icon-btn cart-btn has-badge"
+          id="cartBtn"
+          type="button"
+          aria-label="Открыть корзину"
+          aria-controls="cartPanel"
+        >
+          <i
+            class="fa-solid fa-bag-shopping"
+            aria-hidden="true"
+          ></i>
+
+          <span
+            id="cartCount"
+            aria-hidden="true"
+          >
+            0
+          </span>
+        </button>
+
+
+        <!-- Mobile menu -->
+        <button
+          class="burger"
+          id="burgerBtn"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Search -->
+    <div
+      class="searchbar"
+      id="searchbar"
+      aria-hidden="true"
+    >
+
+      <div class="container">
+
+        <form
+          id="searchForm"
+          role="search"
+          aria-label="Поиск по каталогу"
+        >
+
+          <i
+            class="fa-solid fa-magnifying-glass"
+            aria-hidden="true"
+          ></i>
+
+          <label
+            class="sr-only"
+            for="searchInput"
+          >
+            Поиск по каталогу
+          </label>
+
+          <input
+            id="searchInput"
+            name="search"
+            type="search"
+            placeholder="Найти букет, цветок или композицию…"
+            autocomplete="off"
+            spellcheck="false"
+          >
+
+          <button
+            type="button"
+            id="searchClear"
+            aria-label="Очистить поиск"
+          >
+            Очистить
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+
+  <main id="main-content">
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section
+      class="hero"
+      aria-labelledby="hero-title"
+    >
+
+      <div class="container hero__grid">
+
+        <div class="hero__copy">
+
+          <span class="eyebrow">
+            FLORA VILLAGE · FLOWER STUDIO
+          </span>
+
+          <h1 id="hero-title">
+            Цветы, которые
+            <br>
+            <em>говорят за вас.</em>
+          </h1>
+
+          <p>
+            Собираем авторские букеты из свежих цветов
+            и доставляем их в тот день, когда они нужны.
+          </p>
+
+
+          <div class="hero__buttons">
+
+            <a
+              class="btn btn--dark"
+              href="#catalog"
+            >
+              Выбрать букет
+
+              <i
+                class="fa-solid fa-arrow-right"
+                aria-hidden="true"
+              ></i>
+            </a>
+
+            <button
+              class="text-btn"
+              id="quickAccount"
+              type="button"
+              aria-controls="accountModal"
+            >
+              Мой аккаунт
+
+              <i
+                class="fa-regular fa-user"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+          </div>
+
+
+          <div
+            class="hero__facts"
+            aria-label="Преимущества Flora Village"
+          >
+
+            <span>
+              <b>60 мин</b>
+              от момента заказа
+            </span>
+
+            <span>
+              <b>7 дней</b>
+              свежести
+            </span>
+
+            <span>
+              <b>4.9/5</b>
+              отзывы клиентов
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="hero__visual"
+          aria-hidden="true"
+        >
+
+          <div class="hero__card hero__card--back"></div>
+
+          <div class="hero__card hero__card--front">
+
+            <div class="hero__flower">
+              ✿
+            </div>
+
+            <span>
+              Собрано сегодня
+            </span>
+
+            <strong>
+              с любовью к деталям
+            </strong>
+
+          </div>
+
+          <div class="hero__stamp">
+
+            <i
+              class="fa-solid fa-leaf"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              fresh
+              <br>
+              every day
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CATALOG
+    ==================================================== -->
+
+    <section
+      class="catalog section"
+      id="catalog"
+      aria-labelledby="catalog-title"
+    >
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <span class="eyebrow">
+              НАША КОЛЛЕКЦИЯ
+            </span>
+
+            <h2 id="catalog-title">
+              Выберите свой букет
+            </h2>
+
+          </div>
+
+          <p>
+            Нежные композиции для важных моментов —
+            от маленького знака внимания до большого признания.
+          </p>
+
+        </div>
+
+
+        <!-- Catalog controls -->
+        <div class="catalog-tools">
+
+          <div
+            class="categories"
+            id="categories"
+            role="group"
+            aria-label="Категории букетов"
+          >
+
+            <button
+              class="category active"
+              type="button"
+              data-category="all"
+              aria-pressed="true"
+            >
+              Все
+            </button>
+
+            <button
+              class="category"
+              type="button"
+              data-category="small"
+              aria-pressed="false"
+            >
+              Небольшие
+            </button>
+
+            <button
+              class="category"
+              type="button"
+              data-category="medium"
+              aria-pressed="false"
+            >
+              Средние
+            </button>
+
+            <button
+              class="category"
+              type="button"
+              data-category="large"
+              aria-pressed="false"
+            >
+              Большие
+            </button>
+
+          </div>
+
+
+          <label
+            class="sr-only"
+            for="sortSelect"
+          >
+            Сортировка товаров
+          </label>
+
+          <select
+            id="sortSelect"
+            class="sort"
+            aria-label="Сортировка товаров"
+          >
+            <option value="default">
+              По умолчанию
+            </option>
+
+            <option value="priceAsc">
+              Сначала дешевле
+            </option>
+
+            <option value="priceDesc">
+              Сначала дороже
+            </option>
+
+            <option value="name">
+              По названию
+            </option>
+          </select>
+
+        </div>
+
+
+        <!-- Products -->
+        <div
+          class="catalog__grid"
+          id="catalogGrid"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- Empty search result -->
+        <div
+          class="empty-results"
+          id="emptyResults"
+          hidden
+          role="status"
+        >
+
+          <i
+            class="fa-regular fa-face-frown"
+            aria-hidden="true"
+          ></i>
+
+          <h3>
+            Ничего не нашли
+          </h3>
+
+          <p>
+            Попробуйте изменить запрос
+            или выбрать другую категорию.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         PROMO
+    ==================================================== -->
+
+    <section
+      class="promo-banner section"
+      aria-labelledby="promo-title"
+    >
+
+      <div class="container promo-banner__inner">
+
+        <div>
+
+          <span class="eyebrow">
+            ПОДАРОК К ЗАКАЗУ
+          </span>
+
+          <h2 id="promo-title">
+            Добавьте открытку —
+            <em>бесплатно</em>
+          </h2>
+
+          <p>
+            Напишите пару слов,
+            а мы красиво оформим их вместе с букетом.
+          </p>
+
+        </div>
+
+        <button
+          class="btn btn--dark"
+          id="promoBtn"
+          type="button"
+        >
+          Получить открытку
+
+          <i
+            class="fa-solid fa-gift"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         BOUQUET BUILDER
+    ==================================================== -->
+
+    <section
+      class="builder section"
+      id="builder"
+      aria-labelledby="builder-title"
+    >
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <span class="eyebrow">
+              YOUR BOUQUET
+            </span>
+
+            <h2 id="builder-title">
+              Соберите свой букет
+            </h2>
+
+          </div>
+
+          <p>
+            Выберите цветы, размер, упаковку
+            и дополнения — цена обновится автоматически.
+          </p>
+
+        </div>
+
+
+        <div class="builder__grid">
+
+
+          <!-- Preview -->
+          <div class="builder__visual">
+
+            <div class="builder__bouquet">
+
+              <div
+                class="builder__flowers"
+                id="builderFlowers"
+                aria-hidden="true"
+              >
+                ✿
+              </div>
+
+              <span>
+                Ваш букет
+              </span>
+
+              <strong id="builderPreview">
+                Авторская композиция
+              </strong>
+
+            </div>
+
+
+            <div class="builder__summary">
+
+              <span>
+                Стоимость
+              </span>
+
+              <b>
+                <span id="builderTotal">
+                  1 500
+                </span>
+                ₽
+              </b>
+
+            </div>
+
+          </div>
+
+
+          <!-- Builder form -->
+          <div class="builder__form">
+
+
+            <!-- Step 01 -->
+            <fieldset class="builder-step">
+
+              <legend class="sr-only">
+                Шаг 1. Выберите цветы
+              </legend>
+
+              <b aria-hidden="true">
+                01
+              </b>
+
+              <div>
+
+                <span>
+                  Цветы
+                </span>
+
+                <div
+                  class="choice-grid"
+                  id="flowerChoices"
+                >
+
+                  <button
+                    class="choice active"
+                    type="button"
+                    data-builder-price="0"
+                    data-builder-name="Нежная смесь"
+                    aria-pressed="true"
+                  >
+                    🌸 Нежная смесь
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-builder-price="450"
+                    data-builder-name="Розы"
+                    aria-pressed="false"
+                  >
+                    🌹 Розы +450
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-builder-price="600"
+                    data-builder-name="Тюльпаны"
+                    aria-pressed="false"
+                  >
+                    🌷 Тюльпаны +600
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-builder-price="800"
+                    data-builder-name="Премиум микс"
+                    aria-pressed="false"
+                  >
+                    💐 Премиум +800
+                  </button>
+
+                </div>
+
+              </div>
+
+            </fieldset>
+
+
+            <!-- Step 02 -->
+            <fieldset class="builder-step">
+
+              <legend class="sr-only">
+                Шаг 2. Выберите размер
+              </legend>
+
+              <b aria-hidden="true">
+                02
+              </b>
+
+              <div>
+
+                <span>
+                  Размер
+                </span>
+
+                <div class="choice-grid">
+
+                  <button
+                    class="choice active"
+                    type="button"
+                    data-size-price="0"
+                    data-size="S"
+                    aria-pressed="true"
+                  >
+                    S · 1 500 ₽
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-size-price="900"
+                    data-size="M"
+                    aria-pressed="false"
+                  >
+                    M · 2 400 ₽
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-size-price="1900"
+                    data-size="L"
+                    aria-pressed="false"
+                  >
+                    L · 3 400 ₽
+                  </button>
+
+                </div>
+
+              </div>
+
+            </fieldset>
+
+
+            <!-- Step 03 -->
+            <fieldset class="builder-step">
+
+              <legend class="sr-only">
+                Шаг 3. Выберите упаковку
+              </legend>
+
+              <b aria-hidden="true">
+                03
+              </b>
+
+              <div>
+
+                <span>
+                  Упаковка
+                </span>
+
+                <div class="choice-grid">
+
+                  <button
+                    class="choice active"
+                    type="button"
+                    data-wrap-price="0"
+                    aria-pressed="true"
+                  >
+                    🤍 Крафт
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-wrap-price="250"
+                    aria-pressed="false"
+                  >
+                    🎀 Премиум +250
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-wrap-price="450"
+                    aria-pressed="false"
+                  >
+                    ✨ Подарочная +450
+                  </button>
+
+                </div>
+
+              </div>
+
+            </fieldset>
+
+
+            <!-- Step 04 -->
+            <fieldset class="builder-step">
+
+              <legend class="sr-only">
+                Шаг 4. Выберите дополнения
+              </legend>
+
+              <b aria-hidden="true">
+                04
+              </b>
+
+              <div>
+
+                <span>
+                  Дополнения
+                </span>
+
+                <div class="choice-grid">
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-extra-price="150"
+                    aria-pressed="false"
+                  >
+                    💌 Открытка +150
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-extra-price="350"
+                    aria-pressed="false"
+                  >
+                    🍫 Шоколад +350
+                  </button>
+
+                  <button
+                    class="choice"
+                    type="button"
+                    data-extra-price="700"
+                    aria-pressed="false"
+                  >
+                    🧸 Игрушка +700
+                  </button>
+
+                </div>
+
+              </div>
+
+            </fieldset>
+
+
+            <button
+              class="btn btn--dark full"
+              id="builderAdd"
+              type="button"
+            >
+              Добавить собранный букет
+
+              <i
+                class="fa-solid fa-bag-shopping"
+                aria-hidden="true"
+              ></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         REVIEWS
+    ==================================================== -->
+
+    <section
+      class="reviews section"
+      id="reviews"
+      aria-labelledby="reviews-title"
+    >
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <span class="eyebrow">
+              ОТЗЫВЫ КЛИЕНТОВ
+            </span>
+
+            <h2 id="reviews-title">
+              Нас выбирают сердцем
+            </h2>
+
+          </div>
+
+          <p>
+            Нам важно не только красиво собрать букет,
+            но и сделать весь опыт покупки приятным.
+          </p>
+
+        </div>
+
+
+        <div class="reviews-grid">
+
+          <article class="review">
+
+            <div
+              class="stars"
+              aria-label="5 из 5"
+            >
+              ★★★★★
+            </div>
+
+            <p>
+              «Букет приехал свежим и очень красивым.
+              Отдельное спасибо за открытку —
+              получилось очень душевно.»
+            </p>
+
+            <b>
+              Анна · Санкт-Петербург
+            </b>
+
+          </article>
+
+
+          <article class="review">
+
+            <div
+              class="stars"
+              aria-label="5 из 5"
+            >
+              ★★★★★
+            </div>
+
+            <p>
+              «Заказала утром, вечером уже вручила подарок.
+              Всё аккуратно упаковано,
+              цветы как на фотографии.»
+            </p>
+
+            <b>
+              Мария · постоянный клиент
+            </b>
+
+          </article>
+
+
+          <article class="review">
+
+            <div
+              class="stars"
+              aria-label="5 из 5"
+            >
+              ★★★★★
+            </div>
+
+            <p>
+              «Понравился сам сервис:
+              быстро ответили, помогли выбрать композицию
+              и не навязывали лишнего.»
+            </p>
+
+            <b>
+              Илья · заказ №1048
+            </b>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         GALLERY
+    ==================================================== -->
+
+    <section
+      class="gallery section"
+      id="gallery"
+      aria-labelledby="gallery-title"
+    >
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <span class="eyebrow">
+              НАШИ БУКЕТЫ
+            </span>
+
+            <h2 id="gallery-title">
+              Красиво в каждом кадре
+            </h2>
+
+          </div>
+
+          <p>
+            Сохраняем моменты,
+            которые хочется подарить.
+          </p>
+
+        </div>
+
+
+        <div
+          class="gallery-grid"
+          id="galleryGrid"
+          aria-live="polite"
+        ></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SERVICES
+    ==================================================== -->
+
+    <section
+      class="service-strip"
+      aria-label="Преимущества"
+    >
+
+      <div class="container service-grid">
+
+        <div>
+
+          <i
+            class="fa-solid fa-leaf"
+            aria-hidden="true"
+          ></i>
+
+          <span>
+            <b>
+              Свежие цветы
+            </b>
+
+            <small>
+              Каждый день от поставщиков
+            </small>
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <i
+            class="fa-solid fa-truck-fast"
+            aria-hidden="true"
+          ></i>
+
+          <span>
+            <b>
+              Быстрая доставка
+            </b>
+
+            <small>
+              От 60 минут по городу
+            </small>
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <i
+            class="fa-solid fa-wand-magic-sparkles"
+            aria-hidden="true"
+          ></i>
+
+          <span>
+            <b>
+              Авторская сборка
+            </b>
+
+            <small>
+              Подберём композицию под вас
+            </small>
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <i
+            class="fa-solid fa-heart"
+            aria-hidden="true"
+          ></i>
+
+          <span>
+            <b>
+              Забота
+            </b>
+
+            <small>
+              Красиво до последней детали
+            </small>
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ABOUT
+    ==================================================== -->
+
+    <section
+      class="about section"
+      id="about"
+      aria-labelledby="about-title"
+    >
+
+      <div class="container about__grid">
+
+        <div
+          class="about__visual"
+          aria-hidden="true"
+        >
+
+          <div class="about__quote">
+
+            <i
+              class="fa-solid fa-quote-left"
+              aria-hidden="true"
+            ></i>
+
+            <p>
+              Цветы — это маленький способ сказать человеку:
+              «Я о тебе подумал».
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="about__copy">
+
+          <span class="eyebrow">
+            О FLORA VILLAGE
+          </span>
+
+          <h2 id="about-title">
+            Красота начинается
+            <br>
+            с внимания.
+          </h2>
+
+          <p>
+            Мы создаём букеты с характером:
+            выбираем свежие цветы,
+            собираем композиции вручную
+            и внимательно относимся к каждой детали.
+          </p>
+
+          <p>
+            Наша цель — чтобы получатель улыбнулся
+            ещё до того, как откроет открытку.
+          </p>
+
+          <a
+            class="btn btn--light"
+            href="#contacts"
+          >
+            Связаться с нами
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONTACTS
+    ==================================================== -->
+
+    <section
+      class="contacts section"
+      id="contacts"
+      aria-labelledby="contacts-title"
+    >
+
+      <div class="container">
+
+        <div class="contacts__box">
+
+          <div>
+
+            <span class="eyebrow">
+              БУДЕМ РАДЫ ВАМ
+            </span>
+
+            <h2 id="contacts-title">
+              Есть особенный повод?
+            </h2>
+
+            <p>
+              Расскажите нам, что хотите подарить —
+              поможем подобрать цветы
+              и оформить доставку.
+            </p>
+
+          </div>
+
+
+          <address class="contact-list">
+
+            <a href="tel:+79000000000">
+
+              <i
+                class="fa-solid fa-phone"
+                aria-hidden="true"
+              ></i>
+
+              <span>
+                <small>
+                  Телефон
+                </small>
+
+                +7 (900) 000-00-00
+              </span>
+
+            </a>
+
+
+            <a href="mailto:info@flowers.ru">
+
+              <i
+                class="fa-solid fa-envelope"
+                aria-hidden="true"
+              ></i>
+
+              <span>
+                <small>
+                  Email
+                </small>
+
+                info@flowers.ru
+              </span>
+
+            </a>
+
+
+            <div>
+
+              <i
+                class="fa-solid fa-location-dot"
+                aria-hidden="true"
+              ></i>
+
+              <span>
+                <small>
+                  Адрес
+                </small>
+
+                г. Город, ул. Цветочная, 1
+              </span>
+
+            </div>
+
+          </address>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
+
+    <div class="container footer__inner">
+
+      <a
+        class="logo logo--footer"
+        href="#top"
+        aria-label="Flora Village — на главную"
+      >
+
+        <img
+          src="logo.png"
+          alt="Flora Village"
+          width="120"
+          height="120"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <span>
+          FLORA
+          <b>VILLAGE</b>
+        </span>
+
+      </a>
+
+
+      <p>
+        © 2026 Flora Village.
+        Все права защищены.
+      </p>
+
+
+      <div
+        class="footer__social"
+        aria-label="Социальные сети"
+      >
+
+        <a
+          href="#"
+          aria-label="Instagram Flora Village"
+          rel="noopener noreferrer"
+        >
+          <i
+            class="fa-brands fa-instagram"
+            aria-hidden="true"
+          ></i>
+        </a>
+
+        <a
+          href="#"
+          aria-label="Telegram Flora Village"
+          rel="noopener noreferrer"
+        >
+          <i
+            class="fa-brands fa-telegram"
+            aria-hidden="true"
+          ></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+       MOBILE NAVIGATION
+  ====================================================== -->
+
+  <nav
+    class="mobile-nav"
+    aria-label="Мобильная навигация"
+  >
+
+    <button
+      type="button"
+      data-mobile="top"
+    >
+      <i
+        class="fa-solid fa-house"
+        aria-hidden="true"
+      ></i>
+
+      <span>
+        Главная
+      </span>
+    </button>
+
+
+    <button
+      type="button"
+      data-mobile="catalog"
+    >
+      <i
+        class="fa-solid fa-bag-shopping"
+        aria-hidden="true"
+      ></i>
+
+      <span>
+        Каталог
+      </span>
+    </button>
+
+
+    <button
+      type="button"
+      data-mobile="favorites"
+      aria-label="Открыть избранное"
+    >
+      <i
+        class="fa-regular fa-heart"
+        aria-hidden="true"
+      ></i>
+
+      <span>
+        Избранное
+      </span>
+
+      <b
+        id="mobileFav"
+        aria-label="Количество избранных товаров"
+      >
+        0
+      </b>
+    </button>
+
+
+    <button
+      type="button"
+      data-mobile="account"
+    >
+      <i
+        class="fa-regular fa-user"
+        aria-hidden="true"
+      ></i>
+
+      <span>
+        Аккаунт
+      </span>
+
+    </button>
+
+  </nav>
+
+
+  <!-- =====================================================
+       GLOBAL OVERLAY
+  ====================================================== -->
+
+  <div
+    class="overlay"
+    id="overlay"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- =====================================================
+       FAVORITES PANEL
+  ====================================================== -->
+
+  <aside
+    class="side-panel"
+    id="favPanel"
+    aria-label="Избранное"
+    aria-hidden="true"
+  >
+
+    <div class="panel-head">
+
+      <div>
+
+        <span class="eyebrow">
+          ВАШИ ЛЮБИМЫЕ
+        </span>
+
+        <h3>
+          Избранное
+        </h3>
+
+      </div>
+
+      <button
+        class="close"
+        id="favClose"
+        type="button"
+        aria-label="Закрыть избранное"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="panel-body"
+      id="favBody"
+      aria-live="polite"
+    ></div>
+
+  </aside>
+
+
+  <!-- =====================================================
+       CART PANEL
+  ====================================================== -->
+
+  <aside
+    class="side-panel"
+    id="cartPanel"
+    aria-label="Корзина"
+    aria-hidden="true"
+  >
+
+    <div class="panel-head">
+
+      <div>
+
+        <span class="eyebrow">
+          ВАШ ЗАКАЗ
+        </span>
+
+        <h3>
+          Корзина
+        </h3>
+
+      </div>
+
+      <button
+        class="close"
+        id="cartClose"
+        type="button"
+        aria-label="Закрыть корзину"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="panel-body"
+      id="cartBody"
+      aria-live="polite"
+    ></div>
+
+
+    <div
+      class="panel-footer"
+      id="cartFooter"
+      hidden
+    >
+
+      <div class="total">
+
+        <span>
+          Итого
+        </span>
+
+        <b>
+          <span id="cartTotal">
+            0
+          </span>
+          ₽
+        </b>
+
+      </div>
+
+
+      <button
+        class="btn btn--dark full"
+        id="checkoutBtn"
+        type="button"
+      >
+        Перейти к оформлению
+
+        <i
+          class="fa-solid fa-arrow-right"
+          aria-hidden="true"
+        ></i>
+      </button>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =====================================================
+       ACCOUNT MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="accountModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__card modal__card--account"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="account-title"
+    >
+
+      <button
+        class="close modal-close"
+        id="accountClose"
+        type="button"
+        aria-label="Закрыть личный кабинет"
+      >
+        ×
+      </button>
+
+
+      <div class="account-brand">
+
+        <div class="account-brand__icon">
+
+          <i
+            class="fa-regular fa-user"
+            aria-hidden="true"
+          ></i>
+
+        </div>
+
+        <div>
+
+          <span class="eyebrow">
+            FLORA VILLAGE
+          </span>
+
+          <h2 id="account-title">
+            Личный кабинет
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <!-- Authentication -->
+      <div id="accountAuth">
+
+        <div
+          class="tabs"
+          role="tablist"
+          aria-label="Авторизация"
+        >
+
+          <button
+            class="tab active"
+            type="button"
+            data-tab="login"
+            role="tab"
+            aria-selected="true"
+          >
+            Войти
+          </button>
+
+          <button
+            class="tab"
+            type="button"
+            data-tab="register"
+            role="tab"
+            aria-selected="false"
+          >
+            Создать аккаунт
+          </button>
+
+        </div>
+
+
+        <!-- Login -->
+        <form
+          id="loginForm"
+          class="account-form active"
+          novalidate
+        >
+
+          <label for="loginEmail">
+            Email
+
+            <input
+              id="loginEmail"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              placeholder="you@example.com"
+            >
+          </label>
+
+
+          <label for="loginPassword">
+            Пароль
+
+            <input
+              id="loginPassword"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              minlength="8"
+              required
+              placeholder="Введите пароль"
+            >
+          </label>
+
+
+          <button
+            class="btn btn--dark full"
+            type="submit"
+          >
+            Войти
+          </button>
+
+
+          <p
+            class="form-message"
+            id="loginMessage"
+            role="alert"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+
+        <!-- Registration -->
+        <form
+          id="registerForm"
+          class="account-form"
+          novalidate
+        >
+
+          <label for="registerName">
+            Имя
+
+            <input
+              id="registerName"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+              placeholder="Ваше имя"
+            >
+          </label>
+
+
+          <label for="registerEmail">
+            Email
+
+            <input
+              id="registerEmail"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              placeholder="you@example.com"
+            >
+          </label>
+
+
+          <label for="registerPassword">
+            Пароль
+
+            <input
+              id="registerPassword"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+              placeholder="Минимум 8 символов"
+            >
+          </label>
+
+
+          <button
+            class="btn btn--dark full"
+            type="submit"
+          >
+            Создать аккаунт
+          </button>
+
+
+          <p
+            class="form-message"
+            id="registerMessage"
+            role="alert"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+      </div>
+
+
+      <!-- Account dashboard -->
+      <div
+        id="accountDashboard"
+        hidden
+      >
+
+        <div class="account-user">
+
+          <div
+            class="avatar"
+            id="avatar"
+            aria-hidden="true"
+          >
+            A
+          </div>
+
+          <div>
+
+            <span class="eyebrow">
+              ДОБРО ПОЖАЛОВАТЬ
+            </span>
+
+            <h3 id="accountName">
+              Гость
+            </h3>
+
+            <p id="accountEmail"></p>
+
+          </div>
+
+
+          <button
+            class="btn btn--ghost"
+            id="logoutBtn"
+            type="button"
+          >
+            Выйти
+          </button>
+
+        </div>
+
+
+        <div class="account-services">
+
+          <button
+            type="button"
+            data-account-service="favorites"
+          >
+
+            <i
+              class="fa-regular fa-heart"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              <b>Избранное</b>
+
+              <small>
+                <span id="accountFavCount">0</span>
+                букетов
+              </small>
+            </span>
+
+            <i
+              class="fa-solid fa-chevron-right"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <button
+            type="button"
+            data-account-service="cart"
+          >
+
+            <i
+              class="fa-solid fa-bag-shopping"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              <b>Корзина</b>
+
+              <small>
+                <span id="accountCartCount">0</span>
+                товаров
+              </small>
+            </span>
+
+            <i
+              class="fa-solid fa-chevron-right"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <button
+            type="button"
+            data-account-service="orders"
+          >
+
+            <i
+              class="fa-solid fa-box"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              <b>Мои заказы</b>
+
+              <small>
+                <span id="accountOrderCount">0</span>
+                заказов
+              </small>
+            </span>
+
+            <i
+              class="fa-solid fa-chevron-right"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <button
+            type="button"
+            data-account-service="addresses"
+          >
+
+            <i
+              class="fa-solid fa-location-dot"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              <b>Адреса доставки</b>
+
+              <small>
+                Сохранённые адреса
+              </small>
+            </span>
+
+            <i
+              class="fa-solid fa-chevron-right"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <button
+            type="button"
+            data-account-service="bonuses"
+          >
+
+            <i
+              class="fa-solid fa-gift"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              <b>Бонусы</b>
+
+              <small>
+                <span id="bonusCount">250</span>
+                бонусов
+              </small>
+            </span>
+
+            <i
+              class="fa-solid fa-chevron-right"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+
+          <button
+            type="button"
+            data-account-service="reminders"
+          >
+
+            <i
+              class="fa-regular fa-calendar"
+              aria-hidden="true"
+            ></i>
+
+            <span>
+              <b>Важные даты</b>
+
+              <small>
+                Дни рождения и годовщины
+              </small>
+            </span>
+
+            <i
+              class="fa-solid fa-chevron-right"
+              aria-hidden="true"
+            ></i>
+
+          </button>
+
+        </div>
+
+
+        <div class="security-note">
+
+          <i
+            class="fa-solid fa-shield-heart"
+            aria-hidden="true"
+          ></i>
+
+          <span>
+            Демо-аккаунт работает в этом браузере.
+            Для реальных заказов и безопасной авторизации
+            нужен сервер.
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       CHECKOUT MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="checkoutModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="checkout-title"
+    >
+
+      <button
+        class="close modal-close"
+        id="checkoutClose"
+        type="button"
+        aria-label="Закрыть оформление заказа"
+      >
+        ×
+      </button>
+
+
+      <span class="eyebrow">
+        ПОСЛЕДНИЙ ШАГ
+      </span>
+
+      <h2 id="checkout-title">
+        Оформление заказа
+      </h2>
+
+      <p class="modal-lead">
+        Оставьте контакты,
+        и мы свяжемся с вами
+        для подтверждения доставки.
+      </p>
+
+
+      <form
+        id="checkoutForm"
+        class="checkout-form"
+        novalidate
+      >
+
+        <div class="form-grid">
+
+          <label for="orderName">
+            Имя
+
+            <input
+              id="orderName"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+              placeholder="Ваше имя"
+            >
+          </label>
+
+
+          <label for="orderPhone">
+            Телефон
+
+            <input
+              id="orderPhone"
+              name="phone"
+              type="tel"
+              autocomplete="tel"
+              inputmode="tel"
+              required
+              placeholder="+7 (___) ___-__-__"
+            >
+          </label>
+
+        </div>
+
+
+        <label for="orderAddress">
+          Адрес доставки
+
+          <input
+            id="orderAddress"
+            name="address"
+            type="text"
+            autocomplete="street-address"
+            required
+            placeholder="Улица, дом, квартира"
+          >
+        </label>
+
+
+        <div class="form-grid">
+
+          <label for="orderDate">
+            Дата доставки
+
+            <select
+              id="orderDate"
+              name="deliveryDate"
+            >
+              <option value="Сегодня">
+                Сегодня
+              </option>
+
+              <option value="Завтра">
+                Завтра
+              </option>
+
+              <option value="Выбрать дату позже">
+                Выбрать дату позже
+              </option>
+            </select>
+          </label>
+
+
+          <label for="orderTime">
+            Время
+
+            <select
+              id="orderTime"
+              name="deliveryTime"
+            >
+              <option value="10:00–12:00">
+                10:00–12:00
+              </option>
+
+              <option value="12:00–14:00">
+                12:00–14:00
+              </option>
+
+              <option value="14:00–16:00">
+                14:00–16:00
+              </option>
+
+              <option value="16:00–18:00">
+                16:00–18:00
+              </option>
+
+              <option value="18:00–20:00">
+                18:00–20:00
+              </option>
+            </select>
+          </label>
+
+        </div>
+
+
+        <label for="orderPayment">
+          Оплата
+
+          <select
+            id="orderPayment"
+            name="payment"
+          >
+            <option value="cash">
+              При получении
+            </option>
+
+            <option value="demo">
+              Онлайн — демо-режим
+            </option>
+          </select>
+        </label>
+
+
+        <label for="orderPromo">
+          Промокод
+
+          <input
+            id="orderPromo"
+            name="promo"
+            type="text"
+            autocomplete="off"
+            spellcheck="false"
+            placeholder="Например, FLOWER10"
+          >
+        </label>
+
+
+        <label for="orderComment">
+          Комментарий
+
+          <textarea
+            id="orderComment"
+            name="comment"
+            rows="3"
+            placeholder="Например: доставить после 18:00"
+          ></textarea>
+        </label>
+
+
+        <div class="order-summary">
+
+          <div>
+
+            <span>
+              Сумма заказа
+            </span>
+
+            <small id="promoHint">
+              Можно применить промокод
+            </small>
+
+          </div>
+
+          <b>
+            <span id="checkoutTotal">
+              0
+            </span>
+            ₽
+          </b>
+
+        </div>
+
+
+        <button
+          class="btn btn--dark full"
+          type="submit"
+        >
+          Подтвердить заказ
+
+          <i
+            class="fa-solid fa-check"
+            aria-hidden="true"
+          ></i>
+        </button>
+
+
+        <p
+          class="form-message"
+          id="checkoutMessage"
+          role="alert"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       PRODUCT MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="productModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__card product-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="productModalTitle"
+    >
+
+      <button
+        class="close modal-close"
+        type="button"
+        aria-label="Закрыть информацию о товаре"
+      >
+        ×
+      </button>
+
+      <h2
+        id="productModalTitle"
+        class="sr-only"
+      >
+        Информация о товаре
+      </h2>
+
+      <div id="productModalBody"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       SERVICE MODAL
+  ====================================================== -->
+
+  <div
+    class="modal"
+    id="serviceModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal__card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="serviceTitle"
+    >
+
+      <button
+        class="close modal-close"
+        type="button"
+        aria-label="Закрыть окно"
+      >
+        ×
+      </button>
+
+
+      <span class="eyebrow">
+        FLORA VILLAGE
+      </span>
+
+
+      <h2 id="serviceTitle">
+        Сервис
+      </h2>
+
+
+      <div
+        id="serviceBody"
+        class="service-modal-body"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       TOAST
+  ====================================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+
+    <i
+      class="fa-solid fa-check"
+      aria-hidden="true"
+    ></i>
+
+    <span>
+      Готово
+    </span>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script
+    src="script.js"
+    defer
+  ></script>
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flora Village · Админ панель</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body { background: var(--cream); padding: 40px 20px; font-family: var(--sans); }
+    .admin-container { max-width: 1200px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 20px; box-shadow: var(--shadow); }
+    
+    .admin-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 30px; }
+    .admin-stats div { background: var(--rose-soft); padding: 15px; border-radius: 12px; text-align: center; }
+    .admin-stats b { display: block; font-size: 24px; color: var(--rose); }
+    
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 10px; }
+    th, td { padding: 15px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { background: var(--ink); color: #fff; border-radius: 10px 10px 0 0; }
+    
+    .order-items { font-size: 12px; color: var(--muted); }
+    .back-link { display: inline-block; margin-bottom: 20px; color: var(--rose); text-decoration: none; font-weight: 600; }
+    
+    /* Форма входа */
+    .login-box { max-width: 400px; margin: 80px auto; text-align: center; }
+    .login-box input { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid var(--line); border-radius: 12px; outline: 0; }
+    .login-box input:focus { border-color: var(--rose); }
+    #adminContent { display: none; }
+
+    /* Универсальные кнопки статусов */
+    .status-btn {
+        border: none;
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-size: 13px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    
+    .status-btn:hover { transform: scale(1.05); }
+
+    /* Стили для каждого статуса */
+    .status-new { background: #ffebe9; color: #b85c6b; box-shadow: 0 2px 6px rgba(197,99,115,0.2); }
+    .status-assembly { background: #fff4e0; color: #b8823e; box-shadow: 0 2px 6px rgba(184,130,62,0.2); }
+    .status-delivery { background: #e4f1fd; color: #3e7bb8; box-shadow: 0 2px 6px rgba(62,123,184,0.2); }
+    .status-done { background: #e3f5eb; color: #3e7d55; box-shadow: 0 2px 6px rgba(62,125,85,0.2); }
+
+    /* Адаптив для телефонов */
+    @media (max-width: 768px) {
+        .admin-stats { grid-template-columns: 1fr; }
+        th { display: none; }
+        tr { margin-bottom: 15px; border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: block; }
+        td { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line-soft); text-align: right; }
+        td:last-child { border-bottom: none; }
+        td::before { content: attr(data-label); font-weight: 700; text-align: left; flex: 1; }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="admin-container login-box" id="loginForm">
+    <h2 style="font-family:var(--serif);">Вход для администратора</h2>
+    <p style="color:var(--muted); font-size:13px; margin-bottom:20px;">Введите пароль</p>
+    <input type="password" id="adminPassword" placeholder="Введите пароль">
+    <button class="btn btn--dark full" id="adminLoginBtn">Войти</button>
+    <p id="loginError" style="color:var(--rose); font-size:13px; margin-top:15px; min-height:20px;"></p>
+  </div>
+
+  <div class="admin-container" id="adminContent">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+      <div>
+        <a class="back-link" href="http://127.0.0.1:5500"><i class="fa-solid fa-arrow-left"></i> Вернуться в магазин</a>
+        <h1 style="font-family:var(--serif); margin-top:5px;">Панель управления</h1>
+        <small style="color:var(--muted); font-size:12px;">Обновляется автоматически каждые 10 секунд</small>
+      </div>
+      <button class="btn btn--ghost" id="logoutAdmin" style="height:38px; margin-top:10px;"><i class="fa-solid fa-arrow-right-from-bracket"></i> Выйти</button>
+    </div>
+
+    <div class="admin-stats" id="stats">
+      <div><span>Всего заказов</span><b id="totalOrders">0</b></div>
+      <div><span>На сумму</span><b id="totalRevenue">0 ₽</b></div>
+      <div><span>Новых</span><b id="newOrders">0</b></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>№ Заказа</th>
+          <th>Клиент</th>
+          <th>Товары</th>
+          <th>Сумма</th>
+          <th>Адрес / Время</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTable">
+        <tr><td colspan="6" style="text-align:center; color:var(--muted); padding:30px;">Загрузка заказов...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const loginForm = document.getElementById('loginForm');
+        const adminContent = document.getElementById('adminContent');
+        const passInput = document.getElementById('adminPassword');
+        const loginBtn = document.getElementById('adminLoginBtn');
+        const loginError = document.getElementById('loginError');
+        const logoutBtn = document.getElementById('logoutAdmin');
+        let refreshInterval = null;
+
+        if (sessionStorage.getItem('isAdminLogged') === 'true') {
+            showAdminPanel();
+        } else {
+            loginForm.style.display = 'block';
+            adminContent.style.display = 'none';
+        }
+
+        loginBtn.addEventListener('click', async () => {
+            const password = passInput.value.trim();
+            if (!password) {
+                loginError.textContent = 'Введите пароль.';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password: password })
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    sessionStorage.setItem('isAdminLogged', 'true');
+                    loginError.textContent = '';
+                    showAdminPanel();
+                } else {
+                    loginError.textContent = result.message || 'Неверный пароль';
+                }
+            } catch (error) {
+                loginError.textContent = 'Ошибка соединения с сервером.';
+            }
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('isAdminLogged');
+            clearInterval(refreshInterval);
+            loginForm.style.display = 'block';
+            adminContent.style.display = 'none';
+            passInput.value = '';
+            loginError.textContent = '';
+        });
+
+        async function showAdminPanel() {
+            loginForm.style.display = 'none';
+            adminContent.style.display = 'block';
+            await loadOrders();
+            
+            // Запускаем автообновление каждые 10 секунд (10000 мс)
+            refreshInterval = setInterval(loadOrders, 10000);
+        }
+
+        async function loadOrders() {
+            const tableBody = document.getElementById('ordersTable');
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/admin/orders');
+                const orders = await response.json();
+                
+                const totalOrdersEl = document.getElementById('totalOrders');
+                const totalRevenueEl = document.getElementById('totalRevenue');
+                const newOrdersEl = document.getElementById('newOrders');
+
+                if (!orders || orders.length === 0) {
+                    tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:var(--muted); padding:30px;">Заказов пока нет</td></tr>`;
+                    return;
+                }
+
+                let totalSum = 0;
+                let newOrdersCount = 0;
+                let html = '';
+
+                orders.forEach(order => {
+                    totalSum += order.total;
+                    if (order.status === 'new') newOrdersCount++;
+
+                    const itemsList = order.items.map(item => 
+                        `${item.title} (${item.qty} шт.)`
+                    ).join(', ');
+
+                    // Логика статусов с иконками и цветами
+                    let statusClass = 'status-new';
+                    let statusIcon = '<i class="fa-regular fa-clock"></i>';
+                    let statusText = 'Новый';
+                    let nextStatus = 'assembly';
+
+                    if (order.status === 'assembly') {
+                        statusClass = 'status-assembly';
+                        statusIcon = '<i class="fa-solid fa-hand-holding-heart"></i>';
+                        statusText = 'В сборке';
+                        nextStatus = 'delivery';
+                    } else if (order.status === 'delivery') {
+                        statusClass = 'status-delivery';
+                        statusIcon = '<i class="fa-solid fa-truck-fast"></i>';
+                        statusText = 'В доставке';
+                        nextStatus = 'done';
+                    } else if (order.status === 'done') { 
+                        statusClass = 'status-done'; 
+                        statusIcon = '<i class="fa-regular fa-circle-check"></i>';
+                        statusText = 'Выполнен';
+                        nextStatus = 'done';
+                    }
+
+                    html += `
+                        <tr>
+                            <td data-label="№ Заказа"><b>${order.id}</b></td>
+                            <td data-label="Клиент">
+                                <b>${order.name}</b><br>
+                                <small style="color:var(--muted);">${order.phone}</small>
+                            </td>
+                            <td data-label="Товары" class="order-items">${itemsList}</td>
+                            <td data-label="Сумма"><b>${new Intl.NumberFormat('ru-RU').format(order.total)} ₽</b></td>
+                            <td data-label="Адрес / Время">
+                                <small>${order.address}</small><br>
+                                <small style="color:var(--muted); font-size:11px;">📅 ${order.delivery || 'Не указано'}</small>
+                            </td>
+                            <td data-label="Статус">
+                                ${order.status === 'done' 
+                                    ? `<span class="status-btn status-done" style="cursor:default;">${statusIcon} <span>${statusText}</span></span>`
+                                    : `<button class="status-btn ${statusClass}" data-id="${order.id}" data-status="${nextStatus}">
+                                        ${statusIcon}
+                                        <span>${statusText}</span>
+                                       </button>`
+                                }
+                            </td>
+                        </tr>
+                    `;
+                });
+
+                tableBody.innerHTML = html;
+
+                // Обработчик кликов на активные кнопки статусов
+                tableBody.querySelectorAll('.status-btn:not(.status-done)').forEach(btn => {
+                    btn.addEventListener('click', async (e) => {
+                        const id = e.currentTarget.dataset.id;
+                        const newStatus = e.currentTarget.dataset.status;
+                        
+                        try {
+                            const res = await fetch(`http://127.0.0.1:5000/api/admin/orders/${id}`, {
+                                method: 'PATCH',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ status: newStatus })
+                            });
+                            const result = await res.json();
+                            if (result.success) {
+                                await loadOrders(); // Мгновенно обновляем таблицу
+                            } else {
+                                alert('Ошибка обновления статуса');
+                            }
+                        } catch (error) {
+                            console.error('Ошибка обновления статуса:', error);
+                        }
+                    });
+                });
+
+                totalOrdersEl.textContent = orders.length;
+                totalRevenueEl.textContent = `${new Intl.NumberFormat('ru-RU').format(totalSum)} ₽`;
+                newOrdersEl.textContent = newOrdersCount;
+
+            } catch (error) {
+                console.error('Ошибка загрузки заказов:', error);
+                tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; color:red;">Ошибка загрузки заказов. Проверьте сервер.</td></tr>`;
+            }
+        }
+    });
+  </script>
+</body>
+</html>
